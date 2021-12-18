@@ -1,4 +1,4 @@
-import { LiveReload, Outlet } from "remix";
+import { LiveReload, Outlet, Links } from "remix";
 
 export default function App() {
   return (
@@ -6,6 +6,7 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <title>Lovely Poems</title>
+        <Links />
       </head>
       <body>
         <Outlet />
