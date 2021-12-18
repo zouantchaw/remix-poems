@@ -1,0 +1,92 @@
+.poems-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
+}
+
+.poems-header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.poems-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.poems-header .home-link {
+  font-family: var(--font-display);
+  font-size: 3rem;
+}
+
+.poems-header .home-link a {
+  color: var(--color-foreground);
+}
+
+.poems-header .home-link a:hover {
+  text-decoration: none;
+}
+
+.poems-header .logo-medium {
+  display: none;
+}
+
+.poems-header a:hover {
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
+}
+
+.poems-header .user-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.poems-main {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  flex: 1 1 100%;
+}
+
+.poems-main .container {
+  display: flex;
+  gap: 1rem;
+}
+
+.poems-list {
+  max-width: 12rem;
+}
+
+.poems-outlet {
+  flex: 1;
+}
+
+.poems-footer {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+@media print, (min-width: 640px) {
+  .poems-header .logo {
+    display: none;
+  }
+
+  .poems-header .logo-medium {
+    display: block;
+  }
+
+  .poems-main {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .poems-main .container {
+    flex-direction: column;
+  }
+}
