@@ -3,15 +3,17 @@ const db = new PrismaClient();
 
 async function seed() {
   await Promise.all(
-    getPoems().map(poem => {
-      return db.poem.create({ date: poem });
+    getJokes().map(poem => {
+      return db.poem.create({ data: poem });
     })
   );
 }
 
 seed();
 
-function getPoems() {
+function getJokes() {
+  // shout-out to https://icanhazdadjoke.com/
+
   return [
     {
       name: "Road worker",
@@ -41,5 +43,5 @@ function getPoems() {
       name: "Elevator",
       content: `My first time using an elevator was an uplifting experience. The second time let me down.`
     }
-  ]
+  ];
 }
