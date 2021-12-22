@@ -13,7 +13,6 @@ export const loader = async ({ params }) => {
 
 export default function PoemRoute() {
   const data = useLoaderData()
-  console.log('data', data.poem)
 
   return (
     <div>
