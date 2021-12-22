@@ -1,4 +1,3 @@
-import { LinksFunction, LoaderFunction } from "remix";
 import { Outlet, Link, useLoaderData } from "remix";
 import stylesUrl from "../styles/poems.css"
 import { db } from "../utils/db.server";
@@ -15,9 +14,9 @@ export const links = () => {
 export const loader = async () => {
   const data = {
     poemListItems: await db.poem.findMany({
-      take: 5,
-      select: { id: true, name: true},
-      orderBy: : createdAt: "desc"
+      take: 4,
+      select: { id: true, name: true },
+      orderBy: { createdAt: "desc"}
     })
   };
   return data;
