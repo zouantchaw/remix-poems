@@ -1,5 +1,7 @@
-import { Outlet, Link } from "remix";
+import { LinksFunction, LoaderFunction } from "remix";
+import { Outlet, Link, useLoaderData } from "remix";
 import stylesUrl from "../styles/poems.css"
+import { db } from "../utils/db.server";
 
 export const links = () => {
   return [
@@ -10,7 +12,15 @@ export const links = () => {
   ];
 };
 
+export const loader = async () => {
+  const data = {
+    poemListItems: await db.poem.findMany()
+  };
+  return data;
+}
+
 export default function PoemsRoute() {
+  const data = useLoaderData();
   return (
     <div className="poems-layout">
       <header className="poems-header">
@@ -33,9 +43,11 @@ export default function PoemsRoute() {
             <Link to=".">Get a random poem</Link>
             <p>Here are some poems to check out:</p>
             <ul>
-              <li>
-                <Link to="some-joke-id">Hippo</Link>
-              </li>
+              {data.poemListItems.map(poem => (
+                <li key={poem.id}>
+                  <Link to={poem.id}>{poem.name}</Link>
+                </li>
+              ))}
             </ul>
             <Link to="new" className="button">
               Add your own
