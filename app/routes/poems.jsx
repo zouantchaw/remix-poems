@@ -14,7 +14,11 @@ export const links = () => {
 
 export const loader = async () => {
   const data = {
-    poemListItems: await db.poem.findMany()
+    poemListItems: await db.poem.findMany({
+      take: 5,
+      select: { id: true, name: true},
+      orderBy: : createdAt: "desc"
+    })
   };
   return data;
 }
